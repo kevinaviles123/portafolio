@@ -11,6 +11,14 @@ export default function About() {
             Soy un apasionado desarrollador web con experiencia en crear
             aplicaciones web modernas y escalables.
           </p>
+          <a 
+            href="/CV_Kevin_Steven_Gañan_Aviles_Frontend.pdf" 
+            download="CV_Kevin_Steven_Gañan_Aviles_Frontend.pdf"
+            className="button button-primary"
+            style={{ marginTop: '1rem', display: 'inline-block' }}
+          >
+            Descargar mi CV
+          </a>
         </div>
       </section>
 
@@ -19,13 +27,13 @@ export default function About() {
           <div className="about-grid">
             <Card title="Mi Historia">
               <p>
-                Comencé mi viaje en el desarrollo web hace varios años,
-                fascinado por la capacidad de crear soluciones digitales
-                que impactan positivamente en la vida de las personas.
+                Actualmente soy aprendiz en desarrollo de software en el SENA,
+                donde estoy adquiriendo habilidades fundamentales en programación
+                y desarrollo de proyectos académicos.
               </p>
               <p>
-                Me especializo en el desarrollo de aplicaciones web modernas
-                utilizando las últimas tecnologías y mejores prácticas.
+                Me apasiona el desarrollo web y estoy aprendiendo a crear
+                aplicaciones modernas utilizando tecnologías actuales.
               </p>
             </Card>
 
@@ -42,14 +50,15 @@ export default function About() {
               </ul>
             </Card>
 
-            <Card title="Experiencia">
+            <Card title="Formación">
               <ul>
                 <li>
-                  <h3>Desarrollador web</h3>
-                  <p>Empresa ABC - 2021-Presente</p>
+                  <h3>Aprendiz en Desarrollo de Software</h3>
+                  <p>SENA - Actualmente</p>
                   <ul>
-                    <li>Desarrollo de aplicaciones web con React y Node.js</li>
-                    <li>Optimización de rendimiento</li>
+                    <li>Formación en fundamentos de programación</li>
+                    <li>Desarrollo de proyectos académicos</li>
+                    <li>Aprendizaje de tecnologías web modernas</li>
                   </ul>
                 </li>
               </ul>

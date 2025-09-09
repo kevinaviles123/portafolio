@@ -28,7 +28,7 @@ export default function Home() {
           <div className="skills-grid">
             <Card title="Frontend">
               <ul>
-                <li>React & Next.js</li>
+                <li>React & Node.js</li>
                 <li>JavaScript ES6+</li>
                 <li>Styled Components</li>
                 <li>Framer Motion</li>

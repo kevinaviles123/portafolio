@@ -75,9 +75,6 @@ export default function Contact() {
                 <a href="https://www.linkedin.com/in/kevin-steven-ga%C3%B1an-aviles-07888430b/" target="_blank" rel="noopener noreferrer" className="social-link">
                   LinkedIn
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="social-link">
-                  Twitter
-                </a>
               </div>
             </Card>
 
