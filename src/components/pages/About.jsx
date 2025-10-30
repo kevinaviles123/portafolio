@@ -12,8 +12,8 @@ export default function About() {
             aplicaciones web modernas y escalables.
           </p>
           <a 
-            href="/CV_Kevin_Steven_Gañan_Aviles_Frontend.pdf" 
-            download="CV_Kevin_Steven_Gañan_Aviles_Frontend.pdf"
+            href="/CV_KEVIN_STEVEN_GAÑAN_AVILES.docx" 
+            download="CV_KEVIN_STEVEN_GAÑAN_AVILES.docx"
             className="button button-primary"
             style={{ marginTop: '1rem', display: 'inline-block' }}
           >
@@ -64,12 +64,12 @@ export default function About() {
               </ul>
             </Card>
 
-            <Card title="Hobbies">
+            <Card title="Tiempo Libre">
               <ul>
                 <li>Programación de proyectos personales</li>
                 <li>Lectura de libros técnicos</li>
                 <li>Contribuir a proyectos open source</li>
-                <li>Fotografía</li>
+                <li>Jugar baloncesto</li>
               </ul>
             </Card>
           </div>
