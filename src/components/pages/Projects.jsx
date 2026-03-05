@@ -5,13 +5,13 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Platform',
+    title: 'inventario ',
     description: 'Plataforma de comercio electrónico completa con carrito de compras, sistema de pago y panel de administración.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    image: '/images/ecommerce.jpg',
+    technologies: ['React pwa', ],
+    image: '/images/inventario.png',
     demoLink: 'https://ecommerce-demo.kevindev.com',
-    githubLink: 'https://github.com/kevindev/ecommerce',
-    deployment: 'Desplegado en Vercel con CI/CD automatizado'
+    githubLink: 'https://github.com/kevinaviles123/inventario',
+    deployment: 'https://inventario-hbwn.vercel.app/login'
   },
   {
     id: 2,
@@ -54,7 +54,27 @@ export default function Projects() {
             {projects.map((project) => (
               <Card key={project.id} className="project-card">
                 <div className="project-image">
-                  <img src={project.image} alt={project.title} />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.onerror = null;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.style.display = 'flex';
+                        parent.style.alignItems = 'center';
+                        parent.style.justifyContent = 'center';
+                        parent.style.background = 'linear-gradient(135deg, #1e293b, #4f46e5)';
+                        parent.style.borderRadius = '1rem';
+                        parent.style.color = '#e5e7eb';
+                        parent.style.fontWeight = '700';
+                        parent.style.fontSize = '1.1rem';
+                        parent.textContent = project.title.trim() || 'Proyecto';
+                      }
+                    }}
+                  />
                 </div>
                 <div className="project-content">
                   <h2>{project.title}</h2>

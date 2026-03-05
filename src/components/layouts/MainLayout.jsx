@@ -1,23 +1,47 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
 export default function MainLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
-  const isActive = (path) => location.pathname === path;
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="layout">
-      <nav className="navbar">
+      <nav className="navbar glass-nav">
         <div className="container nav-container">
-          <Link to="/" className="logo">
+          <button
+            type="button"
+            className="logo logo-button"
+            onClick={() => handleNavClick('inicio')}
+          >
             Kevin<span className="accent">Dev</span>
-          </Link>
+          </button>
 
           <button 
             className={`menu-button ${isMenuOpen ? 'open' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Abrir menú de navegación"
           >
             <span></span>
             <span></span>
@@ -25,34 +49,41 @@ export default function MainLayout({ children }) {
           </button>
 
           <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-            <Link 
-              to="/" 
-              className={`nav-link ${isActive('/') ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => handleNavClick('inicio')}
             >
               Inicio
-            </Link>
-            <Link 
-              to="/about" 
-              className={`nav-link ${isActive('/about') ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sobre Mí
-            </Link>
-            <Link 
-              to="/projects" 
-              className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => handleNavClick('proyectos')}
             >
               Proyectos
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => handleNavClick('habilidades')}
+            >
+              Habilidades
+            </button>
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => handleNavClick('sobre-mi')}
+            >
+              Sobre mí
+            </button>
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => handleNavClick('contacto')}
             >
               Contacto
-            </Link>
+            </button>
           </div>
         </div>
       </nav>
@@ -66,7 +97,7 @@ export default function MainLayout({ children }) {
           <div className="footer-content">
             <div className="footer-info">
               <h3>Kevin<span className="accent">Dev</span></h3>
-              <p>Desarrollador web</p>
+              <p>Desarrollador Frontend & React</p>
             </div>
             <div className="social-links">
               <a href="https://github.com/kevinaviles123" target="_blank" rel="noopener noreferrer" className="social-link">
@@ -75,6 +106,9 @@ export default function MainLayout({ children }) {
               <a href="https://www.linkedin.com/in/kevin-steven-ga%C3%B1an-aviles-07888430b/" target="_blank" rel="noopener noreferrer" className="social-link">
                 LinkedIn
               </a>
+              <a href="mailto:kevinaviles140@gmail.com" className="social-link">
+                Email
+              </a>
             </div>
           </div>
           <div className="footer-bottom">
@@ -82,6 +116,17 @@ export default function MainLayout({ children }) {
           </div>
         </div>
       </footer>
+
+      {showScrollTop && (
+        <button
+          type="button"
+          className="scroll-top-button"
+          onClick={scrollToTop}
+          aria-label="Volver arriba"
+        >
+          <ArrowUp size={18} />
+        </button>
+      )}
     </div>
   );
 }
